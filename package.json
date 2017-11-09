@@ -1,7 +1,7 @@
 {
   "name": "angular4-with-webpack",
   "version": "1.0.0",
-  "description": "first angular 4 app with webpack",
+  "description": "first angular 5 app with webpack",
   "main": "app.js",
   "scripts": {
     "test": "test",
