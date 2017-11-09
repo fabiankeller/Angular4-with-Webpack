@@ -7,14 +7,14 @@ module.exports = {
         main: './src/main.ts'
     },
     output: {
-        path: path.join(__dirname, "../dist/"),
+        path: path.join(__dirname, "./dist"),
         filename: "[name].bundle.js",
     },
     resolve: {
         extensions: ['.js', '.ts', '.html']
     },
     devServer: {
-        contentBase: path.join(__dirname, "../dist/"),
+        contentBase: path.join(__dirname, "./dist"),
         port: 9000
     },
     devtool: 'inline-source-map',
@@ -30,13 +30,31 @@ module.exports = {
             { 
                 test: /.html$/, 
                 use: 'raw-loader' 
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader" // compiles Sass to CSS
+                }]
             }
         ]
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/index.html",
+            filename: "index.html",
+            showErrors: true,
+            title: "Webpack App",
+            path: path.join(__dirname, "./dist/"),
+            hash: true
+        }),
         new ContextReplacementPlugin(
             /angular(\\|\/)core/,
-            path.resolve(__dirname, '../src')
+            path.resolve(__dirname, './src')
         )
     ]
     
