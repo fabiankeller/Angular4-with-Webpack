@@ -21,7 +21,8 @@ module.exports = {
     module: {
         loaders: [
             { 
-                test: /.ts$/, 
+                test: /.ts$/,
+                exclude: /(node_modules)/,
                 use: [
                     'awesome-typescript-loader', 
                     'angular2-template-loader'
@@ -29,10 +30,12 @@ module.exports = {
             },
             { 
                 test: /.html$/, 
+                exclude: /(node_modules)/,
                 use: 'raw-loader' 
             },
             {
                 test: /\.scss$/,
+                exclude: /(node_modules)/,
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
                 }, {
