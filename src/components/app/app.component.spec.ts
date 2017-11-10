@@ -1,4 +1,4 @@
-import { } from "jasmine";
+import { } from 'jasmine';
 
 describe('First test', () => {
     it('should run successfully', () => {

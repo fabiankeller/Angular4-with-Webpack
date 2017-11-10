@@ -6,6 +6,7 @@
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --singleRun=false",
+    "lint": "tslint --project .",
     "build": "webpack",
     "dev": "webpack-dev-server",
     "debug": "node --inspect-brk $(npm bin)/webpack --verbose"
