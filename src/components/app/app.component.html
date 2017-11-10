@@ -1,1 +1,15 @@
-<mat-checkbox>Check me!</mat-checkbox>
+<mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon aria-label="Example icon-button with a heart icon">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <h1>Time booking - TBD</h1>
+</mat-toolbar>
+<mat-tab-group>
+    <mat-tab label="Day">Content 1</mat-tab>
+    <mat-tab label="Week">Content 2</mat-tab>
+    <mat-tab label="Month">Content 3</mat-tab>
+</mat-tab-group>
