@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ContextReplacementPlugin } = require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -36,9 +36,9 @@ module.exports = {
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
                 }, {
-                    loader: "css-loader" // translates CSS into CommonJS
+                    loader: "css-loader?sourceMap" // translates CSS into CommonJS
                 }, {
-                    loader: "sass-loader" // compiles Sass to CSS
+                    loader: "sass-loader?sourceMap" // compiles Sass to CSS
                 }]
             }
         ]
@@ -52,7 +52,8 @@ module.exports = {
             path: path.join(__dirname, "./dist/"),
             hash: true
         }),
-        new ContextReplacementPlugin(
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core/,
             path.resolve(__dirname, './src')
         )
