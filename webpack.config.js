@@ -58,7 +58,6 @@ module.exports = {
             template: "./src/index.html",
             filename: "index.html",
             showErrors: true,
-            title: "Webpack App",
             path: path.join(__dirname, "./dist/"),
             hash: true
         }),
