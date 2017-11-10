@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -62,10 +63,10 @@ module.exports = {
             hash: true
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new UglifyJSPlugin(),
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core/,
             path.resolve(__dirname, './src')
         )
     ]
-    
 }
