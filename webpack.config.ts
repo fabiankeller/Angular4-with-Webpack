@@ -69,7 +69,8 @@ class WebpackConfiguration implements webpack.Configuration {
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core/,
             path.resolve(__dirname, './src')
-        )
+        ),
+        new MyFirstWebpackPlugin()
     ]
 }
 
